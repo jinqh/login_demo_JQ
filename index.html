@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            height: 40px;
+            background: #333;
+            padding-left: 800px;
+        }
+        header a {
+            color: #fff;
+            font-size: 14px;
+            padding: 0 10px;
+            line-height: 40px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="##" class="login">登录</a>
+        <a href="##" class="register">注册</a>
+    </header>
+
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/jquery.cookie.js"></script>
+    <script>
+        $('.register').click(function() {
+            location.href = 'register.html';
+        });
+        $('.login').click(function() {
+            location.href = 'login.html';
+        });
+        var str = $.cookie('loginUser') ? $.cookie('loginUser') : '';
+        if (str) {
+            $('.login').replaceWith('<a href="##">' + str + '</a>');
+            $('.register').replaceWith('<a href="##">注销</a>');
+        }
+    </script>
+</body>
+</html>
